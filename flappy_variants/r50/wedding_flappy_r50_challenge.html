@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wedding Flappy</title>
+  <title>Wedding Flappy - challenge</title>
   <style>
     :root {
-      --rose: #d6527f;
-      --blush: #ffdce8;
-      --ivory: #fffdf6;
-      --gold: #d8ae62;
-      --ink: #26303a;
-      --panel: #ffffffd9;
+      --sky-soft: #eaf6ff;
+      --sky-mid: #cfeaff;
+      --sun-accent: #ffd95f;
+      --sun-deep: #f7c742;
+      --ink: #244255;
+      --panel: #ffffffe6;
     }
 
     * {
@@ -27,13 +27,13 @@
       font-family: "Trebuchet MS", "Segoe UI", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 15% 10%, #fff4f7 10%, #ffe7ef 34%, #ffd8e7 72%),
+        radial-gradient(circle at 12% 10%, #ffffff 8%, var(--sky-soft) 32%, var(--sky-mid) 78%),
         repeating-linear-gradient(
           45deg,
           transparent 0,
           transparent 18px,
-          rgba(214, 82, 127, 0.04) 18px,
-          rgba(214, 82, 127, 0.04) 36px
+          rgba(255, 217, 95, 0.18) 18px,
+          rgba(255, 217, 95, 0.18) 36px
         );
     }
 
@@ -44,9 +44,9 @@
       align-items: start;
       padding: 14px;
       border-radius: 14px;
-      border: 1px solid #efc1d2;
-      background: #fff8fbcc;
-      box-shadow: 0 16px 34px rgba(112, 56, 72, 0.16);
+      border: 1px solid #abd5f0;
+      background: #f6fbffde;
+      box-shadow: 0 16px 34px rgba(36, 78, 109, 0.18);
     }
 
     canvas {
@@ -54,15 +54,15 @@
       height: auto;
       aspect-ratio: 3 / 5;
       border-radius: 12px;
-      border: 2px solid #f2bfd2;
-      background: linear-gradient(#fff4f8, #ffe7f0 45%, #ffe0ec);
+      border: 2px solid #a5d0ef;
+      background: linear-gradient(#f4fbff, #dff1ff 45%, #d2eaff);
       touch-action: manipulation;
       display: block;
     }
 
     .side {
       background: var(--panel);
-      border: 1px solid #f2c9d7;
+      border: 1px solid #c5e2f8;
       border-radius: 10px;
       padding: 12px;
       min-width: 220px;
@@ -71,7 +71,7 @@
     h1 {
       margin: 0 0 10px;
       font-size: 1.2rem;
-      color: #8f3658;
+      color: #1f5f8d;
     }
 
     .stat {
@@ -80,7 +80,7 @@
     }
 
     .muted {
-      color: #6f7a84;
+      color: #557183;
       font-size: 0.9rem;
       line-height: 1.4;
       margin-bottom: 0;
@@ -92,8 +92,8 @@
       padding: 10px 12px;
       border: none;
       border-radius: 8px;
-      background: linear-gradient(135deg, var(--rose), #bb406a);
-      color: white;
+      background: linear-gradient(135deg, var(--sun-accent), var(--sun-deep));
+      color: #284056;
       font-weight: 700;
       cursor: pointer;
     }
@@ -123,8 +123,8 @@
       <button id="restart">Restart</button>
       <p class="muted">
         Tap/click/space to jump.<br />
-        Fly through floral arch gaps.<br />
-        Avoid the pillars and floor.
+        Fly through tree gaps.<br />
+        Avoid tree trunks and the ground.
       </p>
     </aside>
   </main>
@@ -135,14 +135,20 @@
 
     const scoreEl = document.getElementById("score");
     const restartBtn = document.getElementById("restart");
+    const couplePhoto = new Image();
+    let photoReady = false;
+    couplePhoto.src = "Thomas_jamie_Beach_001.jpeg";
+    couplePhoto.onload = () => {
+      photoReady = true;
+    };
 
     const world = {
-      gravity: 0.45,
-      flap: -7.8,
-      speed: 2.6,
-      pipeGap: 185,
+      gravity: 0.4596,
+      flap: -7.6929,
+      speed: 2.6433,
+      pipeGap: 245,
       pipeWidth: 84,
-      spawnEvery: 1500,
+      spawnEvery: 1473.5795,
       floorHeight: 86
     };
 
@@ -150,7 +156,7 @@
       x: 95,
       y: 280,
       vy: 0,
-      r: 18
+      r: 50
     };
 
     let pipes = [];
@@ -260,11 +266,30 @@
 
     function drawBackground() {
       const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      sky.addColorStop(0, "#fff7fa");
-      sky.addColorStop(0.6, "#ffeaf2");
-      sky.addColorStop(1, "#ffe1ec");
+      sky.addColorStop(0, "#f7fcff");
+      sky.addColorStop(0.6, "#dff0ff");
+      sky.addColorStop(1, "#cce8ff");
       ctx.fillStyle = sky;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#ffe176";
+      ctx.beginPath();
+      ctx.arc(canvas.width - 64, 64, 34, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = "rgba(255, 222, 116, 0.6)";
+      ctx.lineWidth = 3;
+      for (let i = 0; i < 8; i++) {
+        const angle = (Math.PI * 2 * i) / 8;
+        const sx = canvas.width - 64 + Math.cos(angle) * 44;
+        const sy = 64 + Math.sin(angle) * 44;
+        const ex = canvas.width - 64 + Math.cos(angle) * 56;
+        const ey = 64 + Math.sin(angle) * 56;
+        ctx.beginPath();
+        ctx.moveTo(sx, sy);
+        ctx.lineTo(ex, ey);
+        ctx.stroke();
+      }
 
       ctx.fillStyle = "rgba(255,255,255,0.65)";
       for (let i = 0; i < 5; i++) {
@@ -283,37 +308,40 @@
       const topH = pipe.topHeight;
       const bottomY = topH + world.pipeGap;
 
-      const grad = ctx.createLinearGradient(x, 0, x + w, 0);
-      grad.addColorStop(0, "#be8a3a");
-      grad.addColorStop(0.5, "#e1ba73");
-      grad.addColorStop(1, "#bf8d43");
-      ctx.fillStyle = grad;
-
+      const trunkGrad = ctx.createLinearGradient(x, 0, x + w, 0);
+      trunkGrad.addColorStop(0, "#8a6238");
+      trunkGrad.addColorStop(0.5, "#a97942");
+      trunkGrad.addColorStop(1, "#855b32");
+      ctx.fillStyle = trunkGrad;
       ctx.fillRect(x, 0, w, topH);
       ctx.fillRect(x, bottomY, w, canvas.height - world.floorHeight - bottomY);
 
-      ctx.fillStyle = "#f5cade";
-      for (let i = 0; i < 8; i++) {
-        const flowerX = x + 12 + (i % 4) * 18;
-        const flowerYTop = 20 + Math.floor(i / 4) * 18;
-        const flowerYBottom = bottomY + 18 + Math.floor(i / 4) * 18;
-        drawFlower(flowerX, flowerYTop, 5);
-        drawFlower(flowerX, flowerYBottom, 5);
-      }
-    }
+      const canopyGrad = ctx.createLinearGradient(x, 0, x + w, 0);
+      canopyGrad.addColorStop(0, "#72b85b");
+      canopyGrad.addColorStop(0.5, "#8bce70");
+      canopyGrad.addColorStop(1, "#5fa449");
+      ctx.fillStyle = canopyGrad;
 
-    function drawFlower(x, y, size) {
-      ctx.fillStyle = "#f3b8cd";
-      for (let i = 0; i < 5; i++) {
-        const angle = (Math.PI * 2 * i) / 5;
+      for (let i = 0; i < 4; i++) {
+        const offset = 14 + i * 18;
         ctx.beginPath();
-        ctx.arc(x + Math.cos(angle) * size, y + Math.sin(angle) * size, size * 0.7, 0, Math.PI * 2);
+        ctx.arc(x + offset, Math.max(12, topH - 10), 18, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(x + offset, bottomY + 10, 18, 0, Math.PI * 2);
         ctx.fill();
       }
-      ctx.fillStyle = "#ffd97b";
-      ctx.beginPath();
-      ctx.arc(x, y, size * 0.6, 0, Math.PI * 2);
-      ctx.fill();
+
+      ctx.fillStyle = "#ffd95f";
+      for (let i = 0; i < 3; i++) {
+        ctx.beginPath();
+        ctx.arc(x + 16 + i * 24, Math.max(18, topH - 20), 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(x + 16 + i * 24, bottomY + 20, 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
     }
 
     function drawBird() {
@@ -322,51 +350,42 @@
       ctx.translate(bird.x, bird.y);
       ctx.rotate(tilt);
 
-      ctx.fillStyle = "#fffdf8";
+      ctx.fillStyle = "#f9d950";
       ctx.beginPath();
-      ctx.ellipse(0, 0, bird.r + 3, bird.r, 0, 0, Math.PI * 2);
+      ctx.arc(0, 0, bird.r + 5, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = "#ffd1df";
+      ctx.fillStyle = "#fff";
       ctx.beginPath();
-      ctx.ellipse(-5, 4, bird.r * 0.65, bird.r * 0.48, -0.2, 0, Math.PI * 2);
+      ctx.arc(0, 0, bird.r + 1, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = "#333";
+      ctx.save();
       ctx.beginPath();
-      ctx.arc(7, -5, 2.6, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.fillStyle = "#d6527f";
-      ctx.fillRect(-3, -bird.r - 7, 15, 6);
-      ctx.fillStyle = "#f0b7c9";
-      ctx.beginPath();
-      ctx.moveTo(4, -bird.r - 8);
-      ctx.lineTo(-4, -bird.r - 15);
-      ctx.lineTo(2, -bird.r - 4);
-      ctx.lineTo(-8, -bird.r - 4);
-      ctx.lineTo(0, -bird.r + 2);
-      ctx.closePath();
-      ctx.fill();
-
-      ctx.fillStyle = "#e3ab52";
-      ctx.beginPath();
-      ctx.moveTo(bird.r - 2, 2);
-      ctx.lineTo(bird.r + 10, 5);
-      ctx.lineTo(bird.r - 2, 8);
-      ctx.closePath();
-      ctx.fill();
+      ctx.arc(0, 0, bird.r, 0, Math.PI * 2);
+      ctx.clip();
+      if (photoReady) {
+        ctx.drawImage(couplePhoto, -bird.r, -bird.r, bird.r * 2, bird.r * 2);
+      } else {
+        ctx.fillStyle = "#9ecdf0";
+        ctx.fillRect(-bird.r, -bird.r, bird.r * 2, bird.r * 2);
+        ctx.fillStyle = "#244255";
+        ctx.font = "700 12px Trebuchet MS";
+        ctx.textAlign = "center";
+        ctx.fillText("T + J", 0, 4);
+      }
+      ctx.restore();
 
       ctx.restore();
     }
 
     function drawFloor(now) {
       const y = canvas.height - world.floorHeight;
-      ctx.fillStyle = "#f3c7d8";
+      ctx.fillStyle = "#97d676";
       ctx.fillRect(0, y, canvas.width, world.floorHeight);
 
       const scroll = ((now * 0.12) % 50);
-      ctx.fillStyle = "#e6a9be";
+      ctx.fillStyle = "#f8da67";
       for (let x = -50 + scroll; x < canvas.width + 50; x += 50) {
         ctx.fillRect(x, y + 20, 28, 8);
       }
@@ -376,12 +395,12 @@
       if (!started && !gameOver) {
         ctx.fillStyle = "rgba(255,255,255,0.78)";
         ctx.fillRect(28, 220, canvas.width - 56, 180);
-        ctx.fillStyle = "#8f3658";
+        ctx.fillStyle = "#1f5f8d";
         ctx.font = "700 30px Trebuchet MS";
         ctx.textAlign = "center";
         ctx.fillText("Tap To Start", canvas.width / 2, 290);
         ctx.font = "18px Trebuchet MS";
-        ctx.fillText("Guide the bride through the arches", canvas.width / 2, 330);
+        ctx.fillText("Guide Thomas + Jamie through the trees", canvas.width / 2, 330);
       }
 
       if (gameOver) {
