@@ -32,7 +32,7 @@
 
 body {
     min-height: 100vh;
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     color: var(--text-primary);
     background:
         /* Dusty blue glow in the upper-left for atmosphere. */
@@ -99,7 +99,7 @@ body {
 h1,
 h2,
 h3 {
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Playfair Display', serif;
 }
 
 h1 {
@@ -207,117 +207,6 @@ h3 {
     /* Accent gradient for RSVP call-to-action emphasis. */
     background: linear-gradient(90deg, var(--cta-accent-start), #96ab95);
     font-weight: 700;
-}
-
-.rsvp-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.rsvp-form label {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 0.95rem;
-    color: #3f3a47;
-}
-
-.rsvp-form input,
-.rsvp-form select,
-.rsvp-form textarea {
-    border: 1px solid rgba(63, 121, 184, 0.35);
-    border-radius: 10px;
-    padding: 10px 12px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    background: #fff;
-}
-
-.rsvp-form input:focus,
-.rsvp-form select:focus,
-.rsvp-form textarea:focus {
-    outline: 2px solid rgba(63, 121, 184, 0.28);
-    border-color: #3f79b8;
-}
-
-.full-width {
-    grid-column: 1 / -1;
-}
-
-.rsvp-actions {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.rsvp-submit {
-    border: none;
-    cursor: pointer;
-}
-
-.rsvp-status {
-    margin: 4px 0 14px;
-    font-weight: 700;
-    color: #3f79b8;
-}
-
-.rsvp-results {
-    border-top: 1px solid rgba(95, 157, 227, 0.28);
-    padding-top: 12px;
-}
-
-.rsvp-results-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.clear-rsvp-button {
-    border: 1px solid rgba(63, 121, 184, 0.4);
-    background: #fff;
-    color: #2f5f93;
-    border-radius: 999px;
-    padding: 6px 10px;
-    cursor: pointer;
-    font-weight: 700;
-}
-
-.clear-rsvp-button:hover {
-    background: #eef5ff;
-}
-
-.rsvp-list {
-    list-style: none;
-    display: grid;
-    gap: 8px;
-}
-
-.rsvp-item,
-.rsvp-empty {
-    border: 1px solid rgba(95, 157, 227, 0.25);
-    border-radius: 10px;
-    background: #fff;
-    padding: 10px 12px;
-    display: grid;
-    gap: 4px;
-}
-
-.rsvp-item strong {
-    font-size: 1rem;
-}
-
-.rsvp-item span,
-.rsvp-empty {
-    color: #4f4a57;
-    font-size: 0.92rem;
-}
-
-.rsvp-time {
-    color: #6a6674;
-    font-size: 0.85rem;
 }
 
 .coming-soon {
