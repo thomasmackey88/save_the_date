@@ -326,6 +326,14 @@ h3 {
     color: var(--text-highlight);
 }
 
+.game-frame {
+    width: 100%;
+    min-height: 760px;
+    border: 1px solid rgba(186, 122, 125, 0.28);
+    border-radius: 14px;
+    background: #fff;
+}
+
 @keyframes fade {
     from {
         opacity: 0;
@@ -351,5 +359,9 @@ h3 {
     .tab-button {
         width: 100%;
         text-align: center;
+    }
+
+    .game-frame {
+        min-height: 680px;
     }
 }
