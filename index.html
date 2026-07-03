@@ -3,19 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Save the Date</title>
+    <title>Save the Date | Our Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main class="site-shell">
+        <section class="hero-card">
+            <img class="hero-image" src="Thomas_jamie_Beach_000.jpeg" alt="Save the Date photo">
+            <p class="eyebrow">Together with our families</p>
+            <h1>Save the Date</h1>
+            <p class="date">March 7, 2027</p>
+            <p class="location">Celebration details coming soon</p>
+        </section>
 
-    <div class="container">
-        <img src="Beer_square.png" alt="Save the Date">
+        <nav class="tabs" aria-label="Wedding website navigation">
+            <button class="tab-button active" data-tab="accommodations" type="button">Accommodations</button>
+            <button class="tab-button" data-tab="things" type="button">Things To Do</button>
+            <button class="tab-button" data-tab="rsvp" type="button">RSVP</button>
+            <button class="tab-button" data-tab="party" type="button">Wedding Party Bios</button>
+            <button class="tab-button" data-tab="schedule" type="button">Wedding Week Schedule</button>
+        </nav>
 
-        <h1>Save the Date</h1>
+        <section class="tab-panels">
+            <article class="tab-panel active" id="accommodations" role="region" aria-label="Accommodations">
+                <h2>Accommodations</h2>
+                <p>We will share room blocks and travel details soon.</p>
+                <div class="panel-grid">
+                    <div class="info-card">
+                        <h3>Hotel Block A</h3>
+                        <p>Coming soon</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Hotel Block B</h3>
+                        <p>Coming soon</p>
+                    </div>
+                </div>
+            </article>
 
-        <p class="date">
-            April 11, 2027
-        </p>
+            <article class="tab-panel" id="things" role="region" aria-label="Things to do">
+                <h2>Things To Do</h2>
+                <p>Our favorite local spots, food stops, and weekend activities are on the way.</p>
+                <div class="panel-grid">
+                    <div class="info-card">
+                        <h3>Food + Drinks</h3>
+                        <p>Coming soon</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Explore</h3>
+                        <p>Coming soon</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tab-panel" id="rsvp" role="region" aria-label="RSVP">
+                <h2>RSVP</h2>
+                <p>When RSVPs open, use the link below to respond.</p>
+                <a class="rsvp-link" href="#" aria-label="RSVP link placeholder">RSVP link coming soon</a>
+            </article>
+
+            <article class="tab-panel" id="party" role="region" aria-label="Wedding party bios">
+                <h2>Wedding Party Bios</h2>
+                <p>Meet our people.</p>
+                <div class="panel-grid">
+                    <div class="info-card">
+                        <h3>Maid/Matron of Honor</h3>
+                        <p>Coming soon</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Best Man</h3>
+                        <p>Coming soon</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Bridesmaids + Groomsmen</h3>
+                        <p>Coming soon</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tab-panel" id="schedule" role="region" aria-label="Wedding week schedule">
+                <h2>Wedding Week Schedule</h2>
+                <p class="coming-soon">Coming soon</p>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const { tab } = button.dataset;
+
+                tabButtons.forEach((btn) => btn.classList.remove('active'));
+                tabPanels.forEach((panel) => panel.classList.remove('active'));
+
+                button.classList.add('active');
+                document.getElementById(tab).classList.add('active');
+            });
+        });
+    </script>
     </div>
 
 </body>

@@ -1,41 +1,212 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root {
+    --ink: #2a2630;
+    --paper: #fffdf9;
+    --peach: #efcfbf;
+    --rose: #ba7a7d;
+    --gold: #a57a42;
+    --sage: #7c8f7b;
+    --shadow: 0 18px 48px rgba(36, 26, 29, 0.16);
 }
 
-body{
-    background:#f5f5f5;
-    font-family:Arial, Helvetica, sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.container{
-    background:white;
-    width:90%;
-    max-width:700px;
-    text-align:center;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+body {
+    min-height: 100vh;
+    font-family: 'Manrope', sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 10% 5%, rgba(186, 122, 125, 0.2), transparent 40%),
+        radial-gradient(circle at 95% 90%, rgba(124, 143, 123, 0.22), transparent 45%),
+        linear-gradient(140deg, #fff7f0 0%, #fefaf5 45%, #f2efe8 100%);
+    padding: 28px 16px;
 }
 
-img{
-    width:100%;
-    border-radius:10px;
-    margin-bottom:25px;
+.site-shell {
+    width: min(1040px, 100%);
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
 }
 
-h1{
-    font-size:3rem;
-    letter-spacing:3px;
-    margin-bottom:15px;
+.hero-card,
+.tab-panels,
+.tabs {
+    background: var(--paper);
+    border: 1px solid rgba(165, 122, 66, 0.18);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
 }
 
-.date{
-    font-size:2rem;
-    color:#555;
+.hero-card {
+    text-align: center;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card::after {
+    content: '';
+    position: absolute;
+    inset: auto -80px -80px auto;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(239, 207, 191, 0.7), transparent 68%);
+    pointer-events: none;
+}
+
+.hero-image {
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 18px;
+}
+
+.eyebrow {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-size: 0.77rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+h1 {
+    font-size: clamp(2.1rem, 5vw, 4rem);
+    line-height: 1;
+}
+
+.date {
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+    color: var(--gold);
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+.location {
+    margin-top: 6px;
+    color: #5f5a68;
+}
+
+.tabs {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tab-button {
+    border: 1px solid rgba(186, 122, 125, 0.35);
+    border-radius: 999px;
+    background: #fff;
+    padding: 10px 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab-button:hover {
+    transform: translateY(-1px);
+}
+
+.tab-button.active {
+    background: var(--rose);
+    color: #fff;
+    border-color: var(--rose);
+}
+
+.tab-panels {
+    padding: 24px;
+    min-height: 270px;
+}
+
+.tab-panel {
+    display: none;
+    animation: fade 280ms ease;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin-bottom: 8px;
+}
+
+.tab-panel p {
+    color: #4f4a57;
+    margin-bottom: 16px;
+}
+
+.panel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.info-card {
+    border: 1px solid rgba(124, 143, 123, 0.35);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(250, 246, 241, 1) 100%);
+    padding: 14px;
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+}
+
+.rsvp-link {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(90deg, var(--sage), #96ab95);
+    font-weight: 700;
+}
+
+.coming-soon {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--rose);
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-card,
+    .tab-panels {
+        padding: 18px;
+    }
+
+    .tabs {
+        gap: 8px;
+    }
+
+    .tab-button {
+        width: 100%;
+        text-align: center;
+    }
 }
