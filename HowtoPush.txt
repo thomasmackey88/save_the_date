@@ -1,0 +1,8 @@
+In theory if I push to origin the website should deploy
+I needed to adjust some DNS files on cloud fare
+Cloud fare/github comunicate together
+Method vibe code, check url, push origin,
+check local html "C:\Users\Thomas\Desktop\save_the_date\index.html"
+check github html https://thomasmackey88.github.io/save_the_date/
+check cute url http://jamieandthomas.com/
+Says not secure why?
