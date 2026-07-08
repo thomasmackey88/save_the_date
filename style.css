@@ -197,6 +197,62 @@ h3 {
     margin-bottom: 6px;
 }
 
+.accommodation-card-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+}
+
+.hotel-title {
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    line-height: 1.05;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.hotel-slideshow {
+    margin: 10px 0 14px;
+    padding: 10px;
+    border: 1px solid rgba(63, 121, 184, 0.28);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(238, 246, 255, 0.75) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.hotel-slide-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(63, 121, 184, 0.2);
+    display: block;
+}
+
+.hotel-slide-controls {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.hotel-slide-button {
+    border: 1px solid rgba(63, 121, 184, 0.45);
+    background: #fff;
+    color: #2f5f93;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.hotel-slide-button:hover {
+    background: #eaf3ff;
+}
+
+.hotel-slide-status {
+    font-weight: 700;
+    color: #4f4a57;
+}
+
 .rsvp-link {
     display: inline-block;
     padding: 10px 14px;
@@ -359,6 +415,11 @@ h3 {
     .tab-button {
         width: 100%;
         text-align: center;
+    }
+
+    .hotel-slide-controls {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .game-frame {

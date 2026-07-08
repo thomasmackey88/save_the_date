@@ -31,14 +31,24 @@
         <section class="tab-panels">
             <article class="tab-panel active" id="accommodations" role="region" aria-label="Accommodations">
                 <h2>Accommodations</h2>
-                <p>We will share room blocks and travel details soon.</p>
                 <div class="panel-grid">
                     <div class="info-card">
-                        <h3>Hotel Block A</h3>
-                        <p>Coming soon</p>
+                        <h3 class="hotel-title accommodation-card-title">Ayres Hotel &amp; Spa<br>Mission Viejo</h3>
+                        <div class="hotel-slideshow" aria-label="Ayres Hotel photo slideshow">
+                            <img class="hotel-slide-image" src="AYRES_000.jpg" alt="Ayres Hotel and Spa Mission Viejo exterior" loading="lazy">
+                            <div class="hotel-slide-controls">
+                                <button class="hotel-slide-button" type="button" data-direction="prev" aria-label="Show previous hotel image">Previous</button>
+                                <span class="hotel-slide-status" aria-live="polite">1 / 4</span>
+                                <button class="hotel-slide-button" type="button" data-direction="next" aria-label="Show next hotel image">Next</button>
+                            </div>
+                        </div>
+                        <p>28951 Los Alisos Blvd<br>Mission Viejo, CA</p>
+                        <p>This is where our room block is and it is about 10 minutes from the venue.</p>
+                        <p>Click below to book our group rate. You can also book over the phone by calling <strong>949-305-7200 x0</strong> and mentioning the O'Donnell and Mackey wedding group to receive the special rate.</p>
+                        <a class="rsvp-link" href="https://reservations.ayreshotels.com/hotel-spa-mission-viejo/book/dates-of-stay?groupID=5369236" target="_blank" rel="noopener noreferrer" aria-label="Book Ayres Hotel and Spa Mission Viejo group rate">Book Group Rate</a>
                     </div>
                     <div class="info-card">
-                        <h3>Hotel Block B</h3>
+                        <h3 class="accommodation-card-title">Hotel Block B</h3>
                         <p>Coming soon</p>
                     </div>
                 </div>
@@ -104,6 +114,56 @@
     </main>
 
     <script>
+        const hotelSlides = [
+            {
+                src: 'AYRES_000.jpg',
+                alt: 'Ayres Hotel and Spa Mission Viejo exterior'
+            },
+            {
+                src: 'AYRES_001.jpg',
+                alt: 'Ayres Hotel and Spa Mission Viejo lobby'
+            },
+            {
+                src: 'AYRES_002.jpg',
+                alt: 'Ayres Hotel and Spa Mission Viejo guest room'
+            },
+            {
+                src: 'AYRES_003.jpg',
+                alt: 'Ayres Hotel and Spa Mission Viejo pool area'
+            }
+        ];
+
+        const hotelSlideImage = document.querySelector('.hotel-slide-image');
+        const hotelSlideStatus = document.querySelector('.hotel-slide-status');
+        const hotelSlideButtons = document.querySelectorAll('.hotel-slide-button');
+
+        if (hotelSlideImage && hotelSlideStatus && hotelSlideButtons.length) {
+            let currentHotelSlide = 0;
+
+            const renderHotelSlide = () => {
+                const slide = hotelSlides[currentHotelSlide];
+                hotelSlideImage.src = slide.src;
+                hotelSlideImage.alt = slide.alt;
+                hotelSlideStatus.textContent = `${currentHotelSlide + 1} / ${hotelSlides.length}`;
+            };
+
+            hotelSlideButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const { direction } = button.dataset;
+
+                    if (direction === 'next') {
+                        currentHotelSlide = (currentHotelSlide + 1) % hotelSlides.length;
+                    } else {
+                        currentHotelSlide = (currentHotelSlide - 1 + hotelSlides.length) % hotelSlides.length;
+                    }
+
+                    renderHotelSlide();
+                });
+            });
+
+            renderHotelSlide();
+        }
+
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabPanels = document.querySelectorAll('.tab-panel');
 
