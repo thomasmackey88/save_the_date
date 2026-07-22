@@ -183,6 +183,15 @@ h2 {
     gap: 12px;
 }
 
+.accommodations-grid {
+    grid-template-columns: minmax(280px, 760px);
+    justify-content: center;
+}
+
+.accommodations-grid .info-card {
+    width: 100%;
+}
+
 .info-card {
     /* Gentle accent border to group card content. */
     border: 1px solid rgba(124, 143, 123, 0.35);
