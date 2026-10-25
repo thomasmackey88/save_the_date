@@ -201,6 +201,82 @@ h2 {
     padding: 14px;
 }
 
+.party-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.party-column {
+    min-width: 0;
+}
+
+.party-column-title {
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(186, 122, 125, 0.3);
+}
+
+.party-member-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.party-member {
+    display: grid;
+    grid-template-columns: 108px minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+    border: 1px solid rgba(124, 143, 123, 0.35);
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fff 0%, #faf6f1 100%);
+}
+
+.party-member-photo,
+.party-photo-placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 10px;
+}
+
+.party-member-photo {
+    object-fit: cover;
+}
+
+.party-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: 1px dashed rgba(63, 121, 184, 0.45);
+    background: #eef5fb;
+    color: #4f6680;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.party-member h4 {
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+}
+
+.party-member p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.party-member .party-role {
+    margin-bottom: 4px;
+    color: #3f79b8;
+    font-weight: 700;
+}
+
 h3 {
     font-size: 1.35rem;
     margin-bottom: 6px;
@@ -448,6 +524,16 @@ h3 {
 
     .registry-link {
         width: 100%;
+    }
+
+    .party-columns {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .party-member {
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 12px;
     }
 
     .game-frame {
