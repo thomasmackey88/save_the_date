@@ -214,8 +214,7 @@ h2 {
 .activity-image {
     display: block;
     width: min(100%, 480px);
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    height: auto;
     border-radius: 10px;
     margin: 0 auto;
 }
@@ -245,8 +244,7 @@ h2 {
 .schedule-image {
     display: block;
     width: min(100%, 300px);
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    height: auto;
     border-radius: 10px;
     margin: 0 auto;
     margin-bottom: 12px;
