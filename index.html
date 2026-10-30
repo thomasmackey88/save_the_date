@@ -19,17 +19,17 @@
         </section>
 
         <nav class="tabs" aria-label="Wedding website navigation">
-            <button class="tab-button active" data-tab="accommodations" type="button">Accommodations</button>
-            <button class="tab-button" data-tab="things" type="button">Things To Do</button>
-            <button class="tab-button" data-tab="rsvp" type="button">RSVP</button>
-            <button class="tab-button" data-tab="registry" type="button">Registry</button>
-            <button class="tab-button" data-tab="party" type="button">Wedding Party Bios</button>
+            <button class="tab-button active" data-tab="rsvp" type="button">RSVP</button>
             <button class="tab-button" data-tab="schedule" type="button">Wedding Weekend Schedule</button>
+            <button class="tab-button" data-tab="registry" type="button">Registry</button>
+            <button class="tab-button" data-tab="accommodations" type="button">Accommodations</button>
+            <button class="tab-button" data-tab="party" type="button">Wedding Party Bios</button>
+            <button class="tab-button" data-tab="things" type="button">Things To Do</button>
             <button class="tab-button" data-tab="flappy" type="button">Wedding Mini Game</button>
         </nav>
 
         <section class="tab-panels">
-            <article class="tab-panel active" id="accommodations" role="region" aria-label="Accommodations">
+            <article class="tab-panel" id="accommodations" role="region" aria-label="Accommodations">
                 <h2>Accommodations</h2>
                 <div class="panel-grid accommodations-grid">
                     <div class="info-card">
@@ -52,20 +52,52 @@
 
             <article class="tab-panel" id="things" role="region" aria-label="Things to do">
                 <h2>Things To Do</h2>
-                <p>Our favorite local spots, food stops, and weekend activities are on the way.</p>
-                <div class="panel-grid">
+                <p>Explore some of our favorite things to do near the wedding.</p>
+                <div class="panel-grid things-to-do-grid">
                     <div class="info-card">
-                        <h3>Food + Drinks</h3>
-                        <p>Coming soon</p>
+                        <a class="activity-image-link" href="https://playactivate.com/location/tustin" target="_blank" rel="noopener noreferrer" aria-label="Visit Activate Games Tustin">
+                            <img class="activity-image" src="activate-mega-grid-game-og.jpg" alt="Activate interactive game experience" loading="lazy">
+                        </a>
+                        <h3>Activate Games</h3>
+                        <p>Take on interactive challenges at Activate in Tustin.</p>
+                        <a class="rsvp-link" href="https://playactivate.com/location/tustin" target="_blank" rel="noopener noreferrer">Visit Activate</a>
                     </div>
                     <div class="info-card">
-                        <h3>Explore</h3>
-                        <p>Coming soon</p>
+                        <a class="activity-image-link" href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer" aria-label="View Disneyland Resort tickets">
+                            <img class="activity-image" src="DisneyLand.webp" alt="Disneyland Resort" loading="lazy">
+                        </a>
+                        <h3>Disneyland Resort</h3>
+                        <p>Spend a day enjoying the rides, attractions, and magic of Disneyland.</p>
+                        <a class="rsvp-link" href="https://disneyland.disney.go.com/admission/tickets/" target="_blank" rel="noopener noreferrer">View Tickets</a>
+                    </div>
+                    <div class="info-card">
+                        <a class="activity-image-link" href="https://www.luckystrikeent.com/location/lucky-strike-ladera-ranch" target="_blank" rel="noopener noreferrer" aria-label="Visit Lucky Strike Ladera Ranch">
+                            <img class="activity-image" src="LuckyStrikeLaderaRanch.webp" alt="Lucky Strike bowling and entertainment" loading="lazy">
+                        </a>
+                        <h3>Lucky Strike Ladera Ranch</h3>
+                        <p>Enjoy bowling and entertainment at this nearby spot.</p>
+                        <a class="rsvp-link" href="https://www.luckystrikeent.com/location/lucky-strike-ladera-ranch" target="_blank" rel="noopener noreferrer">Visit Lucky Strike</a>
+                    </div>
+                    <div class="info-card">
+                        <a class="activity-image-link" href="https://www.visitlagunabeach.com/" target="_blank" rel="noopener noreferrer" aria-label="Explore Laguna Beach">
+                            <img class="activity-image" src="laguna beach.jpg" alt="Coastline in Laguna Beach" loading="lazy">
+                        </a>
+                        <h3>Laguna Beach</h3>
+                        <p>Discover the beaches, shops, and local sights of Laguna Beach.</p>
+                        <a class="rsvp-link" href="https://www.visitlagunabeach.com/" target="_blank" rel="noopener noreferrer">Explore Laguna Beach</a>
+                    </div>
+                    <div class="info-card">
+                        <a class="activity-image-link" href="https://parks.oc.gov/oneill" target="_blank" rel="noopener noreferrer" aria-label="Explore O'Neill Regional Park">
+                            <img class="activity-image" src="oneilregionalpark.webp" alt="Trail in O'Neill Regional Park" loading="lazy">
+                        </a>
+                        <h3>O'Neill Regional Park</h3>
+                        <p>Get outdoors on the park's scenic trails and natural spaces.</p>
+                        <a class="rsvp-link" href="https://parks.oc.gov/oneill" target="_blank" rel="noopener noreferrer">Visit O'Neill Regional Park</a>
                     </div>
                 </div>
             </article>
 
-            <article class="tab-panel" id="rsvp" role="region" aria-label="RSVP">
+            <article class="tab-panel active" id="rsvp" role="region" aria-label="RSVP">
                 <h2>RSVP</h2>
                 <p>RSVP details coming soon.</p>
             </article>
@@ -236,7 +268,23 @@
 
             <article class="tab-panel" id="schedule" role="region" aria-label="Wedding week schedule">
                 <h2>Wedding Weekend Schedule</h2>
-                <p class="coming-soon">Coming soon</p>
+                <div class="panel-grid schedule-grid">
+                    <article class="info-card schedule-card">
+                        <img class="schedule-image" src="TheCounter.jpg" alt="The Counter restaurant" loading="lazy">
+                        <h3>Welcome Dinner at The Counter</h3>
+                        <p class="schedule-date">Saturday, March 6, 2027 · 6:00 PM–8:00 PM</p>
+                        <p>Hosted food and drinks. Stop by anytime throughout the evening to say hi.</p>
+                        <p><strong>Address:</strong> 27742 Antonio Pkwy Ste K-7, Ladera Ranch, CA 92694</p>
+                        <p><strong>Dress code:</strong> Casual</p>
+                    </article>
+                    <article class="info-card schedule-card">
+                        <img class="schedule-image" src="DoveCanyon.avif" alt="Dove Canyon Golf Club, wedding venue" loading="lazy">
+                        <h3>Wedding Ceremony and Reception</h3>
+                        <p class="schedule-date">Sunday, March 7, 2027 · 3:30 PM–10:00 PM</p>
+                        <p><strong>Address:</strong> 22682 Golf Club Dr, Trabuco Canyon, CA 92679</p>
+                        <p><strong>Dress code:</strong> Cocktail</p>
+                    </article>
+                </div>
             </article>
 
             <article class="tab-panel" id="flappy" role="region" aria-label="Wedding mini game">

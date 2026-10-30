@@ -169,6 +169,7 @@ h1 {
 h2 {
     font-size: clamp(1.7rem, 3vw, 2.3rem);
     margin-bottom: 8px;
+    color: #3f79b8;
 }
 
 .tab-panel p {
@@ -199,6 +200,70 @@ h2 {
     /* Subtle off-white gradient for card depth. */
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(250, 246, 241, 1) 100%);
     padding: 14px;
+}
+
+.things-to-do-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.activity-image-link {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.activity-image {
+    display: block;
+    width: min(100%, 480px);
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.things-to-do-grid .info-card {
+    text-align: center;
+}
+
+.things-to-do-grid .info-card h3 {
+    margin-bottom: 8px;
+    color: #2a2630;
+    font-size: 1.6rem;
+}
+
+.things-to-do-grid .info-card p {
+    min-height: 3em;
+}
+
+.schedule-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.schedule-card {
+    text-align: center;
+}
+
+.schedule-image {
+    display: block;
+    width: min(100%, 300px);
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 12px;
+}
+
+.schedule-card h3 {
+    color: #2a2630;
+    margin-bottom: 8px;
+    font-size: 1.6rem;
+}
+
+.schedule-card p {
+    margin-bottom: 10px;
+}
+
+.schedule-date {
+    font-weight: 700;
 }
 
 .party-columns {
